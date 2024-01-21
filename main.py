@@ -103,7 +103,7 @@ def cnn_endpoint():
     # Convert the results to a numpy array
     results = np.array(results).tolist()
 
-    zip_file_path = f'{dir}/frames.zip'
+    zip_file_path = f'frames.zip'
     with zipfile.ZipFile(zip_file_path, 'w') as zip_file:
         for frame_name in os.listdir(save_dir):
             frame_path = os.path.join(save_dir, frame_name)
