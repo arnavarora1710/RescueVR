@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3002637766
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: df07d45e01025692ffcdb285e991019f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ad11ed0e11008540e8e57176aec3e1a5
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: df07d45e01025692ffcdb285e991019f
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 690929a59dc7a42da9030305190d391f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3d881e962d099f4a8eb492ef7e9a8c0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 191492db6e452eb468b95433ec162164, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f3fe6e38ac2d4c22b04340d6eda2a47e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3863570e7e6387a40ae4f323d83291e5, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/Voice/Resources/ConduitManifest-ea4064c0-c543-4e2c-bc0b-dc41cc9a0806.json
+- Assets/Resources/OculusPlatformSettings.asset
+- Assets/XRI/Settings/Resources/InteractionLayerSettings.asset
+- Assets/Resources/MetaXRAudioSettings.asset
+- Assets/Resources/OVRPlatformToolSettings.asset
+- Assets/XRI/Settings/Resources/XRDeviceSimulatorSettings.asset
+- Assets/Resources/OculusRuntimeSettings.asset
+- Assets/Resources/OVRBuildConfig.asset
+Dependencies: []

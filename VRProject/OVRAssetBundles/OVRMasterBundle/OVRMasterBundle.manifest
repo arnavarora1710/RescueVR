@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 1332502634
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: asset_resources
+      Dependencies: {}
+    Info_1:
+      Name: scene_mainscene
+      Dependencies:
+        Dependency_0: asset_mat0
+        Dependency_1: asset_controller0
+        Dependency_2: asset_fbx0
+    Info_2:
+      Name: asset_mat0
+      Dependencies:
+        Dependency_0: asset_png0
+        Dependency_1: asset_tga0
+        Dependency_2: asset_shader0
+    Info_3:
+      Name: asset_controller0
+      Dependencies:
+        Dependency_0: asset_fbx0
+    Info_4:
+      Name: asset_fbx0
+      Dependencies:
+        Dependency_0: asset_mat0
+        Dependency_1: asset_png0
+        Dependency_2: asset_tga0
+    Info_5:
+      Name: asset_png0
+      Dependencies: {}
+    Info_6:
+      Name: asset_tga0
+      Dependencies: {}
+    Info_7:
+      Name: asset_shader0
+      Dependencies: {}
