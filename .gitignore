@@ -1,3 +1,3 @@
 node_modules/
 *.pt
-env.local
+.env.local
