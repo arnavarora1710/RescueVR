@@ -28,7 +28,7 @@ export default function InputArea({
           }}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              send(); // Enter 입력이 되면 클릭 이벤트 실행
+              send(); 
             }
           }}
           placeholder="Ask any question..."

@@ -119,3 +119,15 @@
     transform: translate(24px, 0);
   }
 }
+.link-style {
+  color: #333; /* Text color */
+  padding: 10px; /* Padding around the text */
+  margin: 5px; /* Margin around each link */
+  text-decoration: none; /* Removes underline from links */
+  display: inline-block; /* Aligns links in a line */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.link-style:hover {
+  background-color: #ddd; /* Background color on hover */
+}

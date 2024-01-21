@@ -1,0 +1,105 @@
+"use client";
+
+import InputArea from "@/components/inputarea";
+import ChatArea from "@/components/chatarea";
+
+import { useEffect, useRef, useState } from "react";
+
+interface Message {
+  role: "user" | "assistant";
+  content?: string;
+  status?: "thinking";
+}
+
+const initialMessages: Message[] = [
+  {
+    role: "assistant",
+    content: "Hi, I'm RescueBot. How can I help you?",
+  },
+];
+
+export default function IndexPage() {
+  const chatAreaRef = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState(initialMessages);
+
+  const scrollToBottom = () => {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  };
+
+  const handleSend = async (message: string) => {
+    let updatedMessages = [
+      ...messages,
+      {
+        role: "user",
+        content: message,
+      } as Message,
+      {
+        role: "assistant",
+        status: "thinking",
+      } as Message,
+    ];
+
+    setMessages(updatedMessages);
+
+
+    // Streaming, Multi turn
+    const response = await fetch("/api/chat3", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        messages: updatedMessages.slice(0, -1),
+      }),
+    });
+
+    const data = response.body;
+    const reader = data?.getReader();
+    const decoder = new TextDecoder();
+
+    let done = false;
+    let lastMessage = "";
+    while (!done && reader) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      const chunkValue = decoder.decode(value);
+      lastMessage = lastMessage + chunkValue;
+
+      setMessages([
+        ...updatedMessages.slice(0, -1),
+        {
+          role: "assistant",
+          content: lastMessage,
+        },
+      ]);
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
+
+  return (
+    <>
+      <div className="flex absolute bottom-0 justify-center w-full">
+        <div className="md:w-1/2">
+          <div
+            ref={chatAreaRef}
+            className="h-screen overflow-auto pl-2 pr-4 pt-40"
+          >
+            <ChatArea messages={messages} scrollToBottom={scrollToBottom} />
+          </div>
+
+          <div className="pb-5 pl-2 pr-4 pt-4">
+            <InputArea
+              handleSend={handleSend}
+              scrollToBottom={scrollToBottom}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
